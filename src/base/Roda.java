@@ -215,15 +215,16 @@ public class Roda {
 		return jogadorAux;
 	}
 
-	/**
-	 * altera a cor armazenada
+	/** Função armazena a cor escolhida pelo usuário, no caso de ocorrer uma carta com ação de troca cor. 
+	 * @param Cor a ser armazenada.
 	 */
 	public void mudarCor(cor recebida) {
 		corEscolhida = recebida;
 	}
 
 	/**
-	 * @return Ultima carta do baralho de descarte.
+	 * Função que verifica qual foi a última carta jogada. Se for um carta que tem a ação de mudar cor, será atualizada essa mudança.
+	 * @return Ultima carta do baralho de descarte, já com a cor atualizada(Se preciso).
 	 */
 	public Carta getUltimaCarta() {
 		Carta cartaAux = this.descarte.ultimaCarta();
@@ -240,9 +241,9 @@ public class Roda {
 	}
 
 	/**
-	 * Compra um numero de cartas e entrega a um jogador.
-	 * @param qtd Quantidade de cartas a serem compradas.
-	 * @param jogador Jogador que vai comprar.
+	 * Função que permite a compra um numero de cartas específico e entrega ao jogador determinado.
+	 * @param Valor inteiro que representa a quantidade de cartas a serem compradas.
+	 * @param Qual jogador que está realizando a operação de compra.
 	 */
 	public void comprar(int qtd, Jogador jogador) {
 		LOGGER.info("Comprando {} carta(s) ao jogador {}", qtd, jogador);
@@ -252,8 +253,8 @@ public class Roda {
 	}
   
   /**
-	 * salva o acumulo em um ArrayList auxiliar, limpa o acumulo, e retorna o auxiliar
-	 * @return Acumulo de ações
+	 * A função salva o acúmulo em um ArrayList auxiliar, limpa o Arraylist de acúmulo, e retorna o auxiliar.
+	 * @return Retorna um Arraylist com as cartas que estão acumuladas.
 	 */
   public ArrayList<Acao> desacumular(){
     ArrayList<Acao> acumuloAux = this.acumulo;
@@ -263,8 +264,8 @@ public class Roda {
   }
 
   /**
-	 * Verifica o tamanho do acumulo
-	 * @return Se houver acúmulo retorna true, senão, retorna false
+	 * A função verifica se existe acúmulo de cartas(do tipo +2 ou +4) no Arraylist "Acumulo".
+	 * @return Se houver acúmulo retorna true, caso contrário retornará false.
 	 */
   public boolean temAcumulo(){
     int tamanho = this.acumulo.size();
